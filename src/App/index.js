@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import CardFilter from '../components/CardFilter';
 import StudentCard from '../components/StudentCard';
 import './App.scss';
 
@@ -34,20 +35,25 @@ function App() {
   `;
 
   return (
-    <Div>
-      {students.map((student) => (
-        <StudentCard
-          key={student.id}
-          company={student.company}
-          email={student.email}
-          firstName={student.firstName}
-          grades={student.grades}
-          lastName={student.lastName}
-          pic={student.pic}
-          skill={student.skill}
-          />
-      ))}
-    </Div>
+    <>
+      <CardFilter
+        students={students}
+      />
+      <Div>
+        {students.map((student) => (
+          <StudentCard
+            key={student.id}
+            company={student.company}
+            email={student.email}
+            firstName={student.firstName}
+            grades={student.grades}
+            lastName={student.lastName}
+            pic={student.pic}
+            skill={student.skill}
+            />
+        ))}
+      </Div>
+    </>
   );
 }
 
