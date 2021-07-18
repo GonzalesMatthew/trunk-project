@@ -22,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: 380,
     overflow: 'auto',
   },
+  fullName: {
+    fontWeight: 'fontWeightBold',
+  }
 }));
 
 const StudentCard = ({
@@ -34,13 +37,16 @@ const StudentCard = ({
   skill,
 }) => {
   const classes = useStyles();
+
+  // convert full name to uppercase
+  const fullName = `${firstName.toUpperCase()} ${lastName.toUpperCase()}`;
+
   // compute average of grades array
   let total = 0;
   for (let i = 0; i < grades.length; i += 1) {
     total += Number(grades[i]);
   }
   const average = `${total / grades.length}%`;
-  // end average computation
 
   return (
     <Card className="student-card d-flex flex-row'">
@@ -52,8 +58,8 @@ const StudentCard = ({
         />
       </div>
       <div className='d-flex flex-column flex-grow-1'>
-        <CardHeader
-          title={`${firstName} ${lastName}`}
+        <CardHeader className={classes.fullName}
+          title={fullName}
         />
         <CardContent>
           Email: {email}<br/>
