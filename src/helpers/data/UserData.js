@@ -1,15 +1,9 @@
-const getStudents = () => {
-  // eslint-disable-next-line no-undef
-  fetch('https://api.hatchways.io/assessment/students')
-    .then((response) => response.json())
-    .then((jsonData) => {
-    // jsonData is parsed json object received from url
-      console.warn(jsonData);
-    })
-    .catch((error) => {
-    // handle your errors here
-      console.error(error);
-    });
-};
+import axios from 'axios';
+
+const getStudents = () => new Promise((resolve, reject) => {
+  axios.get('https://api.hatchways.io/assessment/students.json')
+    .then((response) => resolve((response)))
+    .catch((error) => reject(error));
+});
 
 export default { getStudents };

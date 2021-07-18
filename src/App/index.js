@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Container } from '@material-ui/core';
+import StudentCard from '../components/StudentCard';
 import './App.scss';
-// import getStudents from '../helpers/data/UserData';
 
 function App() {
   const [students, setStudents] = useState([]);
@@ -11,7 +12,7 @@ function App() {
       .then((response) => response.json())
       .then((jsonData) => {
       // jsonData is parsed json object received from url
-        setStudents(jsonData);
+        setStudents(jsonData.students);
       })
       .catch((error) => {
       // handle your errors here
@@ -19,11 +20,23 @@ function App() {
       });
   }, []);
   console.warn(students);
-
   return (
-    <>
-      Test print
-    </>
+    <Container>
+      {students.map((student) => (
+        <StudentCard
+          key={student.id}
+          city={student.city}
+          company={student.company}
+          email={student.email}
+          firstName={student.firstName}
+          grades={student.grades}
+          id={student.id}
+          lastName={student.lastName}
+          pic={student.pic}
+          skill={student.skill}
+          />
+      ))}
+    </Container>
   );
 }
 
