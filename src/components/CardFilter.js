@@ -1,19 +1,21 @@
 import React from 'react';
+import { Input } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-const CardFilter = ({ students, setSearchTerm }) => {
-  console.warn(students);
+const Div = styled.div`
+  margin: 5px;
+`;
 
-  return (
-  <>
-    <input type="text" id="myInput" onChange={(e) => { setSearchTerm(e.target.value); } } placeholder="Search by names"></input>
-  </>
-  );
-};
+const CardFilter = ({ searchTerm, setSearchTerm }) => (
+  <Div>
+    <Input fullWidth={true} type="text" value={searchTerm} onChange={(e) => { setSearchTerm(e.target.value); } } placeholder="Search by names"></Input>
+  </Div>
+);
 
 CardFilter.propTypes = {
-  students: PropTypes.array,
-  setSearchTerm: PropTypes.function,
+  searchTerm: PropTypes.string,
+  setSearchTerm: PropTypes.func,
 };
 
 export default CardFilter;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import CardFilter from '../components/CardFilter';
+import CardFilter from '../components/CardFilter';
 import StudentCard from '../components/StudentCard';
 import './App.scss';
 
@@ -23,15 +23,13 @@ function App() {
 
   return (
     <div className='mainDiv'>
-      {/* <CardFilter
+      <CardFilter
         students={students}
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
-      /> */}
-      <input type="text" value={searchTerm} onChange={(e) => { setSearchTerm(e.target.value); } } placeholder="Search by names"></input>
-      <hr/>
+      />
       {students.filter((student) => {
-        if (student.firstName.toLowerCase().includes(searchTerm.toLowerCase()) || student.lastName.toLowerCase().includes(searchTerm.toLowerCase())) {
+        if ((`${student.firstName} ${student.lastName}`).toLowerCase().includes(searchTerm.toLowerCase())) {
           return student;
         } return '';
       }).map((student) => (
