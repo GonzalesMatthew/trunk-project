@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import CardFilter from '../components/CardFilter';
+import CardFilterInput from '../components/CardFilterInput';
 import StudentCard from '../components/StudentCard';
 import './App.scss';
 
@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div className='mainDiv'>
-      <CardFilter
+      <CardFilterInput
         students={students}
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}

@@ -7,15 +7,15 @@ const Div = styled.div`
   margin: 5px;
 `;
 
-const CardFilter = ({ searchTerm, setSearchTerm }) => (
+const CardFilterInput = ({ searchTerm, setSearchTerm }) => (
   <Div>
     <Input fullWidth={true} type="text" value={searchTerm} onChange={(e) => { setSearchTerm(e.target.value); } } placeholder="Search by names"></Input>
   </Div>
 );
 
-CardFilter.propTypes = {
+CardFilterInput.propTypes = {
   searchTerm: PropTypes.string,
   setSearchTerm: PropTypes.func,
 };
 
-export default CardFilter;
+export default CardFilterInput;

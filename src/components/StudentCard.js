@@ -68,6 +68,7 @@ const StudentCard = ({
           Average:{average}
         </CardContent>
       </div>
+      <button type='button'><i className='fas fa-plus'></i></button>
     </Card>
   );
 };
