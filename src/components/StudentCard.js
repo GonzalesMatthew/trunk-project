@@ -80,6 +80,7 @@ StudentCard.propTypes = {
   lastName: PropTypes.string,
   pic: PropTypes.string,
   skill: PropTypes.string,
+  fullName: PropTypes.string,
 };
 
 export default StudentCard;

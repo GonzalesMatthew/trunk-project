@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import CardFilter from '../components/CardFilter';
+// import CardFilter from '../components/CardFilter';
 import StudentCard from '../components/StudentCard';
 import './App.scss';
 
@@ -19,41 +18,35 @@ function App() {
       });
   }, []);
 
-  console.warn(students);
-
-  // make styles for the view w styled-components
-  const Div = styled.div`
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-    max-width: 1900px;
-    max-height: 600px;
-    overflow-y: auto;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  `;
+  // establish hooks for TextFilter.js
+  const [searchTerm, setSearchTerm] = useState('');
 
   return (
-    <>
-      <CardFilter
+    <div className='mainDiv'>
+      {/* <CardFilter
         students={students}
-      />
-      <Div>
-        {students.map((student) => (
-          <StudentCard
-            key={student.id}
-            company={student.company}
-            email={student.email}
-            firstName={student.firstName}
-            grades={student.grades}
-            lastName={student.lastName}
-            pic={student.pic}
-            skill={student.skill}
-            />
-        ))}
-      </Div>
-    </>
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+      /> */}
+      <input type="text" value={searchTerm} onChange={(e) => { setSearchTerm(e.target.value); } } placeholder="Search by names"></input>
+      <hr/>
+      {students.filter((student) => {
+        if (student.firstName.toLowerCase().includes(searchTerm.toLowerCase()) || student.lastName.toLowerCase().includes(searchTerm.toLowerCase())) {
+          return student;
+        } return '';
+      }).map((student) => (
+        <StudentCard
+          key={student.id}
+          company={student.company}
+          email={student.email}
+          firstName={student.firstName}
+          grades={student.grades}
+          lastName={student.lastName}
+          pic={student.pic}
+          skill={student.skill}
+          />
+      ))}
+    </div>
   );
 }
 
