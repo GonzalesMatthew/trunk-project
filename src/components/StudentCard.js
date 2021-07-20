@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   makeStyles, Card, CardHeader, CardContent, Avatar,
 } from '@material-ui/core';
@@ -38,6 +38,10 @@ const StudentCard = ({
 }) => {
   const classes = useStyles();
 
+  // create toggle logic
+  const [openToggle, setOpenToggle] = useState(false);
+  const toggleOn = () => setOpenToggle(!openToggle);
+
   // convert full name to uppercase
   const fullName = `${firstName.toUpperCase()} ${lastName.toUpperCase()}`;
 
@@ -66,9 +70,12 @@ const StudentCard = ({
           Company: {company}<br/>
           Skill: {skill}<br/>
           Average:{average}
+          {openToggle && grades.forEach((grade, i) => console.warn(`Test ${i}: ${grade}%`))}
         </CardContent>
       </div>
-      <button type='button'><i className='fas fa-plus'></i></button>
+      <button type='button' onClick={toggleOn}>
+        {openToggle ? <i className="fas fa-minus"></i> : <i className='fas fa-plus'></i>}
+      </button>
     </Card>
   );
 };
