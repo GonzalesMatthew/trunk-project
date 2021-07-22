@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import {
-  makeStyles, Card, CardHeader, CardContent, Avatar,
+  makeStyles, Card, CardHeader, CardContent, Avatar, Chip
 } from '@material-ui/core';
 import Grades from './Grades';
+import TagForm from './TagForm';
 
 // make styles for the view
 const useStyles = makeStyles((theme) => ({
@@ -38,6 +39,9 @@ const StudentCard = ({
   skill,
 }) => {
   const classes = useStyles();
+
+  // create tag hooks
+  const [tags, setTags] = useState([]);
 
   // create toggle logic
   const [openToggle, setOpenToggle] = useState(false);
@@ -74,8 +78,16 @@ const StudentCard = ({
           {openToggle
             && <Grades grades={grades}/>
           }
+        {/* Display tags */}
+        {/* { tags.length > 0 ? 'Yes tags exist' : 'No tags exist'} */}
+        { tags.length > 0
+            && tags.map((tag, i) => <Chip key={i} size="small" label={tag}/>)
+        }
+        {/* Component to create/set tags */}
+        <TagForm setTags={setTags}/>
         </CardContent>
       </div>
+      {/* button to view test results */}
       <button className='button' type='button' onClick={toggleOn}>
         {openToggle ? <i className='fas fa-minus fa-2x'></i> : <i className='fas fa-plus fa-2x'></i>}
       </button>
