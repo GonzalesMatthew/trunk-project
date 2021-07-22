@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import {
   makeStyles, Card, CardHeader, CardContent, Avatar,
 } from '@material-ui/core';
+import Grades from './Grades';
 
 // make styles for the view
 const useStyles = makeStyles((theme) => ({
@@ -70,7 +71,9 @@ const StudentCard = ({
           Company: {company}<br/>
           Skill: {skill}<br/>
           Average:{average}
-          {openToggle && grades.forEach((grade, i) => console.warn(`Test ${i}: ${grade}%`))}
+          {openToggle
+            && <Grades grades={grades}/>
+          }
         </CardContent>
       </div>
       <button type='button' onClick={toggleOn}>
