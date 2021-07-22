@@ -84,7 +84,7 @@ const StudentCard = ({
             && tags.map((tag, i) => <Chip key={i} size="small" label={tag}/>)
         }
         {/* Component to create/set tags */}
-        <TagForm setTags={setTags}/>
+        <TagForm setTags={setTags} firstName={firstName} lastName={lastName}/>
         </CardContent>
       </div>
       {/* button to view test results */}

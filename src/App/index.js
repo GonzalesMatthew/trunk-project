@@ -19,17 +19,23 @@ function App() {
   }, []);
 
   // establish hooks for TextFilter.js
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchName, setSearchName] = useState('');
+  const [searchTag, setSearchTag] = useState('');
 
   return (
     <div className='mainDiv'>
       <CardFilterInput
-        students={students}
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
+        searchTerm={searchName}
+        setSearchTerm={setSearchName}
+        placeholder='Search by name'
+      />
+      <CardFilterInput
+        searchTerm={searchTag}
+        setSearchTerm={setSearchTag}
+        placeholder='Search by tag'
       />
       {students.filter((student) => {
-        if ((`${student.firstName} ${student.lastName}`).toLowerCase().includes(searchTerm.toLowerCase())) {
+        if ((`${student.firstName} ${student.lastName}`).toLowerCase().includes(searchName.toLowerCase())) {
           return student;
         } return '';
       }).map((student) => (
