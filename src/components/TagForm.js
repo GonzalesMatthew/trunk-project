@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Input } from '@material-ui/core';
 
-const TagForm = ({ setTags }) => {
+const TagForm = ({ setTags, fullName }) => {
 // create tag adding functionality
   const [newTag, setNewTag] = useState('');
 
@@ -18,7 +18,7 @@ const TagForm = ({ setTags }) => {
 
   return (
     <form
-      id='addTagForm'
+      id={`addTagForm ${fullName}`}
       autoComplete='off'
       onSubmit={handleSubmit}
     >
@@ -36,6 +36,7 @@ const TagForm = ({ setTags }) => {
 
 TagForm.propTypes = {
   setTags: PropTypes.func,
+  fullName: PropTypes.string,
 };
 
 export default TagForm;
