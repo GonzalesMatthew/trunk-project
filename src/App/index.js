@@ -21,8 +21,6 @@ function App() {
   // establish hooks for TextFilter.js
   const [searchTerm, setSearchTerm] = useState('');
 
-  console.warn(students);
-
   return (
     <div className='mainDiv'>
       <CardFilterInput

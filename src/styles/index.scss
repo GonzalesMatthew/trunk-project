@@ -23,3 +23,15 @@ body {
   list-style-type: none;
   padding-left: 0;
 }
+
+.button {
+  background: none;
+  border: none;
+  vertical-align: top;
+  opacity: 0.5;
+  align-self: flex-start;
+}
+
+.button:hover {
+  opacity: 1;
+}

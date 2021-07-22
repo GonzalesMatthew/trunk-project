@@ -76,8 +76,8 @@ const StudentCard = ({
           }
         </CardContent>
       </div>
-      <button type='button' onClick={toggleOn}>
-        {openToggle ? <i className="fas fa-minus"></i> : <i className='fas fa-plus'></i>}
+      <button className='button' type='button' onClick={toggleOn}>
+        {openToggle ? <i className='fas fa-minus fa-2x'></i> : <i className='fas fa-plus fa-2x'></i>}
       </button>
     </Card>
   );
