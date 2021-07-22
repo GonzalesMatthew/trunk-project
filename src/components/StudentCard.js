@@ -70,7 +70,7 @@ const StudentCard = ({
           Email: {email}<br/>
           Company: {company}<br/>
           Skill: {skill}<br/>
-          Average:{average}
+          Average:{average}<br/>
           {openToggle
             && <Grades grades={grades}/>
           }
