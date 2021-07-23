@@ -11,12 +11,19 @@ function App() {
     fetch('https://api.hatchways.io/assessment/students')
       .then((response) => response.json())
       .then((jsonData) => {
-        setStudents(jsonData.students);
+        const data = jsonData.students;
+        // create empty tags property for each student;
+        data.forEach((student) => {
+          // eslint-disable-next-line no-param-reassign
+          student.tags = ['tag10', 'tag20'];
+        });
+        setStudents(data);
       })
       .catch((error) => {
         console.error(error);
       });
   }, []);
+  console.warn(students);
 
   // establish hooks for CardFilterInput.js
   const [searchName, setSearchName] = useState('');
@@ -38,6 +45,13 @@ function App() {
         if ((`${student.firstName} ${student.lastName}`).toLowerCase().includes(searchName.toLowerCase())) {
           return student;
         } return '';
+      // eslint-disable-next-line array-callback-return
+      }).filter((student) => {
+        student.tags.filter((tag) => {
+          if (tag.toLowerCase().includes(searchTag.toLowerCase())) {
+            return student;
+          } return '';
+        });
       }).map((student, i) => (
         <StudentCard
           key={student.id}
