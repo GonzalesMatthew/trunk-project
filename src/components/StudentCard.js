@@ -37,6 +37,9 @@ const StudentCard = ({
   lastName,
   pic,
   skill,
+  students,
+  setStudents,
+  index,
 }) => {
   const classes = useStyles();
 
@@ -78,16 +81,23 @@ const StudentCard = ({
           {openToggle
             && <Grades grades={grades}/>
           }
-        {/* Display tags */}
-        {/* { tags.length > 0 ? 'Yes tags exist' : 'No tags exist'} */}
-        { tags.length > 0
-            && tags.map((tag, i) => <Chip key={i} size="small" label={tag}/>)
-        }
-        {/* Component to create/set tags */}
-        <TagForm setTags={setTags} firstName={firstName} lastName={lastName}/>
+          {/* Display tags: */}
+          { tags.length > 0
+              && tags.map((tag, i) => <Chip key={i} size="small" label={tag}/>)
+          }
+          {/* Component to create/set tags: */}
+          <TagForm
+            setTags={setTags}
+            firstName={firstName}
+            lastName={lastName}
+            students={students}
+            setStudents={setStudents}
+            index={index}
+            tags={tags}
+          />
         </CardContent>
       </div>
-      {/* button to view test results */}
+      {/* button to view test results: */}
       <button className='button' type='button' onClick={toggleOn}>
         {openToggle ? <i className='fas fa-minus fa-2x'></i> : <i className='fas fa-plus fa-2x'></i>}
       </button>
@@ -104,6 +114,9 @@ StudentCard.propTypes = {
   pic: PropTypes.string,
   skill: PropTypes.string,
   fullName: PropTypes.string,
+  students: PropTypes.array,
+  setStudents: PropTypes.func,
+  index: PropTypes.number,
 };
 
 export default StudentCard;

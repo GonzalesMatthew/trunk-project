@@ -18,7 +18,7 @@ function App() {
       });
   }, []);
 
-  // establish hooks for TextFilter.js
+  // establish hooks for CardFilterInput.js
   const [searchName, setSearchName] = useState('');
   const [searchTag, setSearchTag] = useState('');
 
@@ -38,7 +38,7 @@ function App() {
         if ((`${student.firstName} ${student.lastName}`).toLowerCase().includes(searchName.toLowerCase())) {
           return student;
         } return '';
-      }).map((student) => (
+      }).map((student, i) => (
         <StudentCard
           key={student.id}
           company={student.company}
@@ -48,6 +48,9 @@ function App() {
           lastName={student.lastName}
           pic={student.pic}
           skill={student.skill}
+          students={students}
+          setStudents={setStudents}
+          index={i}
           />
       ))}
     </div>

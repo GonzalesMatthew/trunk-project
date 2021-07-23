@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Input } from '@material-ui/core';
 
-const TagForm = ({ setTags, firstName, lastName }) => {
+const TagForm = ({
+  setTags, firstName, lastName, students, setStudents, index, tags
+}) => {
 // create tag adding functionality
   const [newTag, setNewTag] = useState('');
 
@@ -13,6 +15,13 @@ const TagForm = ({ setTags, firstName, lastName }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setTags((prevState) => ([...prevState, newTag]));
+    // push tag array to student in student array:
+    const newStudentsArray = students;
+    const newTagArray = tags;
+    newTagArray.push(newTag);
+    newStudentsArray[index].tags = newTagArray;
+    setStudents(newStudentsArray);
+    // reset tag input field:
     setNewTag('');
   };
 
@@ -38,6 +47,10 @@ TagForm.propTypes = {
   setTags: PropTypes.func,
   firstName: PropTypes.string,
   lastName: PropTypes.string,
+  students: PropTypes.array,
+  setStudents: PropTypes.func,
+  index: PropTypes.number,
+  tags: PropTypes.array,
 };
 
 export default TagForm;
