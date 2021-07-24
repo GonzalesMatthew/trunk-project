@@ -28,6 +28,8 @@ function App() {
   const [searchName, setSearchName] = useState('');
   const [searchTag, setSearchTag] = useState('');
 
+  console.warn(students);
+
   return (
     <div className='mainDiv'>
       <CardFilterInput
@@ -41,7 +43,11 @@ function App() {
         placeholder='Search by tag'
       />
       {students.filter((student) => {
-        if ((`${student.firstName} ${student.lastName}`).toLowerCase().includes(searchName.toLowerCase()) && student.tags.includes(searchTag)) {
+        if ((`${student.firstName} ${student.lastName}`).toLowerCase().includes(searchName.toLowerCase())) {
+          return student;
+        } return '';
+      }).filter((student) => {
+        if ((student.tags.includes(searchTag))) {
           return student;
         } return '';
       }).map((student, i) => (
@@ -57,6 +63,7 @@ function App() {
           students={students}
           setStudents={setStudents}
           index={i}
+          currentTags={student.tags}
           />
       ))}
     </div>

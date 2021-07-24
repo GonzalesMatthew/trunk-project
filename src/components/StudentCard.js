@@ -40,11 +40,12 @@ const StudentCard = ({
   students,
   setStudents,
   index,
+  currentTags,
 }) => {
   const classes = useStyles();
 
   // create tag hooks
-  const [tags, setTags] = useState([]);
+  const [tags, setTags] = useState(currentTags);
 
   // create toggle logic
   const [openToggle, setOpenToggle] = useState(false);
@@ -82,7 +83,7 @@ const StudentCard = ({
             && <Grades grades={grades}/>
           }
           {/* Display tags: */}
-          { tags.length > 0
+          { tags.length > 1
               && tags.map((tag, i) => <Chip key={i} size="small" label={tag}/>)
           }
           {/* Component to create/set tags: */}
@@ -117,6 +118,7 @@ StudentCard.propTypes = {
   students: PropTypes.array,
   setStudents: PropTypes.func,
   index: PropTypes.number,
+  currentTags: PropTypes.array,
 };
 
 export default StudentCard;
