@@ -28,8 +28,6 @@ function App() {
   const [searchName, setSearchName] = useState('');
   const [searchTag, setSearchTag] = useState('');
 
-  console.warn(students);
-
   return (
     <div className='mainDiv'>
       <CardFilterInput

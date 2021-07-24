@@ -83,8 +83,8 @@ const StudentCard = ({
             && <Grades grades={grades}/>
           }
           {/* Display tags: */}
-          { tags.length > 1
-              && tags.map((tag, i) => <Chip key={i} size="small" label={tag}/>)
+          { tags.length > 0
+              && tags.slice(1, tags.length + 1).map((tag, i) => (<Chip key={i} size="small" label={tag}/>))
           }
           {/* Component to create/set tags: */}
           <TagForm
