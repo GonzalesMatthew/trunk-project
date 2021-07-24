@@ -72,11 +72,11 @@ const StudentCard = ({
         <div className='fullName'>
           {fullName}
         </div>
-        <CardContent>
+        <CardContent className='cardContent'>
           Email: {email}<br/>
           Company: {company}<br/>
           Skill: {skill}<br/>
-          Average:{average}<br/>
+          Average: {average}<br/>
           {openToggle
             && <Grades grades={grades}/>
           }
