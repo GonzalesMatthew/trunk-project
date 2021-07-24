@@ -1,6 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;1,700&display=swap');
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import 'variables';
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;700&display=swap');
 
 body {
   background-color: $favColor;
@@ -38,4 +38,9 @@ body {
 
 .no-display {
   display: none;
+}
+
+.fullName {
+  font-weight: 700;
+  font-size: 1.5em;
 }

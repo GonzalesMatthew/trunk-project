@@ -29,7 +29,7 @@ function App() {
   const [searchTag, setSearchTag] = useState('');
 
   return (
-    <div className='mainDiv'>
+    <div p={1} className='mainDiv'>
       <CardFilterInput
         searchTerm={searchName}
         setSearchTerm={setSearchName}

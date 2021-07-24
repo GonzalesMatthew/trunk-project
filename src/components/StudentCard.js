@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import {
-  makeStyles, Card, CardHeader, CardContent, Avatar, Chip
+  makeStyles, Card, CardContent, Avatar, Chip
 } from '@material-ui/core';
 import Grades from './Grades';
 import TagForm from './TagForm';
@@ -15,18 +15,16 @@ const useStyles = makeStyles((theme) => ({
   large: {
     width: theme.spacing(15),
     height: theme.spacing(15),
+    borderRadius: '50%',
+    border: '1px solid #D3D3D3',
   },
   paper: {
-    padding: theme.spacing(2),
     margin: 'auto',
     maxWidth: 500,
     backgroundColor: '#D1CBC1',
     maxHeight: 380,
     overflow: 'auto',
   },
-  fullName: {
-    fontWeight: 'fontWeightBold',
-  }
 }));
 
 const StudentCard = ({
@@ -62,7 +60,7 @@ const StudentCard = ({
   const average = `${total / grades.length}%`;
 
   return (
-    <Card className="student-card d-flex flex-row'">
+    <Card p={1} className="student-card d-flex flex-row">
       <div>
         <Avatar
           alt={`image of ${firstName} ${lastName}`}
@@ -71,9 +69,9 @@ const StudentCard = ({
         />
       </div>
       <div className='d-flex flex-column flex-grow-1'>
-        <CardHeader className={classes.fullName}
-          title={fullName}
-        />
+        <div className='fullName'>
+          {fullName}
+        </div>
         <CardContent>
           Email: {email}<br/>
           Company: {company}<br/>
