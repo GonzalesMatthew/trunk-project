@@ -29,41 +29,45 @@ function App() {
   const [searchTag, setSearchTag] = useState('');
 
   return (
-    <div p={1} className='mainDiv'>
-      <CardFilterInput
-        searchTerm={searchName}
-        setSearchTerm={setSearchName}
-        placeholder='Search by name'
-      />
-      <CardFilterInput
-        searchTerm={searchTag}
-        setSearchTerm={setSearchTag}
-        placeholder='Search by tag'
-      />
-      {students.filter((student) => {
-        if ((`${student.firstName} ${student.lastName}`).toLowerCase().includes(searchName.toLowerCase())) {
-          return student;
-        } return '';
-      }).filter((student) => {
-        if ((student.tags.includes(searchTag))) {
-          return student;
-        } return '';
-      }).map((student, i) => (
-        <StudentCard
-          key={student.id}
-          company={student.company}
-          email={student.email}
-          firstName={student.firstName}
-          grades={student.grades}
-          lastName={student.lastName}
-          pic={student.pic}
-          skill={student.skill}
-          students={students}
-          setStudents={setStudents}
-          index={i}
-          currentTags={student.tags}
-          />
-      ))}
+    <div className='mainDiv'>
+      <div>
+        <CardFilterInput
+          searchTerm={searchName}
+          setSearchTerm={setSearchName}
+          placeholder='Search by name'
+        />
+        <CardFilterInput
+          searchTerm={searchTag}
+          setSearchTerm={setSearchTag}
+          placeholder='Search by tag'
+        />
+      </div>
+      <div className='scroll'>
+        {students.filter((student) => {
+          if ((`${student.firstName} ${student.lastName}`).toLowerCase().includes(searchName.toLowerCase())) {
+            return student;
+          } return '';
+        }).filter((student) => {
+          if ((student.tags.includes(searchTag))) {
+            return student;
+          } return '';
+        }).map((student, i) => (
+          <StudentCard
+            key={student.id}
+            company={student.company}
+            email={student.email}
+            firstName={student.firstName}
+            grades={student.grades}
+            lastName={student.lastName}
+            pic={student.pic}
+            skill={student.skill}
+            students={students}
+            setStudents={setStudents}
+            index={i}
+            currentTags={student.tags}
+            />
+        ))}
+      </div>
     </div>
   );
 }

@@ -72,7 +72,7 @@ const StudentCard = ({
         <div className='fullName'>
           {fullName}
         </div>
-        <CardContent className='cardContent'>
+        <CardContent className='raleway'>
           Email: {email}<br/>
           Company: {company}<br/>
           Skill: {skill}<br/>
