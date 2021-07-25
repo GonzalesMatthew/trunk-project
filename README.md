@@ -59,15 +59,9 @@
 ## Thank you!
 Thank you for reading my README and reviewing my application. I had a lot of fun building it, was able to review concepts I learned in past projects and even learned some new things in the process (i.e. material-ui themes, some CSS tricks)
 
-### Some things I wish I could have figured out
-* I see that the search bars should remain on top at all times. I need to change up my CSS to make this happen
-* My tags seach is strict, whereas the prompt video example is it not (i.e. in my app, you must fully spell out the tag for it to find those students)
-
-I currently have a full-time job and am still learning back-end part-time (which also has exercises I need to study). I'm hoping I'll be able to figure these out before the final due date. But if I don't have the time I'm still proud of what I've submitted and I hope you enjoy it too.
-
 ### In closing
 I hope you found my explanations clear and succinct. (I strive to convey accurate information in my communication!) Thanks for reviewing my app, it was fun to make!
 
-If you are interested in other projects of mine please see my personal site here.
+If you are interested in other projects of mine please see my personal bio site here.
 ### Link to my personal bio site
 [Personal Bio Site](https://www.matthewggonzales.com)
