@@ -1,7 +1,13 @@
-# React Template
+# Trunk Front-End Project
 
-**Use this template to get up and running quickly on projects.**
+## Contributors 
+[Matthew Gonzales](https://github.com/GonzalesMatthew)
 
-This is just like the webpack template. Use it, create the repo, connect it to your local and `npm i`.
-
-- [Steps to deploy](https://github.com/nss-nightclass-projects/REACT-Deployment-Netlify)
+## Technologies
+React
+Prop-types
+Material-Ui
+React-strap/Bootstrap
+SCSS
+Axios
+Styled-components
