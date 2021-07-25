@@ -9,7 +9,7 @@ const Div = styled.div`
 
 const CardFilterInput = ({ searchTerm, setSearchTerm, placeholder }) => (
   <Div>
-    <Input className='raleway' fullWidth={true} type="text" value={searchTerm} onChange={(e) => { setSearchTerm(e.target.value); } } placeholder={placeholder}></Input>
+    <Input fullWidth={true} type="text" value={searchTerm} onChange={(e) => { setSearchTerm(e.target.value); } } placeholder={placeholder}></Input>
   </Div>
 );
 
