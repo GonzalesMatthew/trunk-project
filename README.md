@@ -7,7 +7,66 @@
 React
 Prop-types
 Material-Ui
-React-strap/Bootstrap
 SCSS
 Axios
-Styled-components
+Styled-components (actually makeStyles from Material-Ui)
+
+## Prompt requirements and solutions:
+
+### Get the student data from the URL and display them on screen
+* Established hooks to store students in an array
+* Utilized useEffect to read the URL with a fetch promise only when App initially renders
+* Used .map() to create cards for each student (Material-ui -- note: could have also used react-strap/bootstrap, but I started using material and enjoy the styling more)
+
+### Replicate student cards styling
+* Imported Raleway from Google Fonts
+* Material-Ui components have specificity which negate Raleway from appearing in certain Material-ui components
+  * Made a custom Material-Ui theme so that these components default to Raleway
+  * for CardContent component used a .raleway class to ensure Raleway is included there
+* Included border radis and thin gray border for each student picture
+* Included margin
+* First name and last name are passed to Students cards where their full name will be concatanated, uppercased (.toUpperCase()) and displayed
+* Created class to bolden and make full name font size bigger
+* used makeStyles (similar to styled-components) for certain StudentCard styling
+
+### Filter students by name
+* Built a component to house an input field which will be used to filter students
+  * It accepts props so that I can use multiple instances of it, which will be useful later on
+* Using .filter, I can compare the hook which stores the value of the search input and filter the students for a new array
+  * This is done before the .map() so that I only create cards for students which meet the requirement
+
+### Each student has an expandable view which displays their individual test results
+* Imported Font Awesome into scss style sheet so I can use some icons (plus and minus icons)
+* Used opacity=1 on button hover to provide contrast on hover
+* Used a hook to store a true/false value
+  * built a toggle function with this which will control ternary operator logic, based on status determined by button click
+    * it decides whether the button icon is a plus or minus sign (using ternary operator logic)
+    * it also either displays test results or doesn't (using &&)
+
+### Each student can have tags attached to them
+* Tag hooks are created at the StudentCard level to store an array of tags
+  * These hooks are passed into a new component TagForm, which houses the tag input field and logic to create and update tags
+    * Here a new student property, which is an array called 'tags', is created and the student hook is set to a new array which includes the updated tag property for each student
+
+### Filter students by tags
+* Since we already made a component which lets us enter text to then be filtered for we can call it again, this time with different props which consider tags (and also a different placeholder value gets passed)
+* Considering that the student.tags property doesn't exist upon import, we have to modify the promise so that it does get created manually before our students hook is set
+  * This way our tag search will not break our App upon initial render
+* Now we can use .filter() again, this time to see if the search value is included in the tags array -- using .include()
+  * We can using the conditional operator && and join our two tests since we want to filter by both search inputs
+
+## Thank you!
+Thank you for reading my README and reviewing my application. I had a lot of fun building it, was able to review concepts I learned in past projects and even learned some new things in the process (i.e. material-ui themes, some CSS tricks)
+
+### Some things I wish I could have figured out
+* I see that the search bars should remain on top at all times. I need to change up my CSS to make this happen
+* My tags seach is strict, whereas the prompt video example is it not (i.e. you must fully spell out the tag for it to find those students)
+
+I currently have a full-time job and am still learning back-end part-time (which also has exercises I need to study). I'm hoping I'll be able to figure these out before the final due date. But if I don't have the time I'm still proud of what I've submitted and I hope you enjoy it too.
+
+### In closing
+I hope you found my explanations clear and succinct. I strive to convey accurate information in my communication because words can lead to nebulous descriptions if one is not careful.
+
+If you are interested in other projects of mine please see my personal site here.
+### Link to my personal bio site
+[Personal Bio Site](https://www.matthewggonzales.com)

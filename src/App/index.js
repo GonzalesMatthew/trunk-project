@@ -14,7 +14,7 @@ function App() {
     }
   });
 
-  // establish hooks to get students array
+  // establish hooks to get/update students array
   const [students, setStudents] = useState([]);
   useEffect(() => {
     // eslint-disable-next-line no-undef

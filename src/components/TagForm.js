@@ -39,7 +39,7 @@ const TagForm = ({
         placeholder='Add a tag'>
       </Input>
       <button className='no-display' type='submit'></button>
-  </form>
+    </form>
   );
 };
 
