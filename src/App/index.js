@@ -55,7 +55,11 @@ function App() {
         </div>
         <div className='scroll'>
           {students.filter((student) => {
-            if ((`${student.firstName} ${student.lastName}`).toLowerCase().includes(searchName.toLowerCase()) && (student.tags.includes(searchTag))) {
+            if ((`${student.firstName} ${student.lastName}`).toLowerCase().includes(searchName.toLowerCase())) {
+              return student;
+            } return '';
+          }).filter((student) => {
+            if (student.tags.some((tag) => tag.toLowerCase().includes(searchTag.toLowerCase()))) {
               return student;
             } return '';
           }).map((student, i) => (
